@@ -1,6 +1,6 @@
 # Algorithms (Random topics given by Copilot)
 
-- [ ] Sliding Window
+- [x] Sliding Window
 - [ ] Two Pointers
 - [ ] Binary Search
 - [ ] BFS
