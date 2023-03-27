@@ -13,8 +13,8 @@
 
 ### Problem List
 > Leetcode :
-  - [Add Two Numbers](https://github.com/greyfolk99/algorithm/tree/main/notes/Leetcode/Add%20Two%20Numbers)
-  - [Asteroid](https://github.com/greyfolk99/algorithm/tree/main/notes/Leetcode/Asteroid)
-  - [Longest Substring Without Repeating Characters](https://github.com/greyfolk99/algorithm/tree/main/notes/Leetcode/Longest%20Substring%20Without%20Repeating%20Characters)
+  - [Add Two Numbers](https://github.com/greyfolk99/algorithm/tree/main/notes/leetcode/add%20two%20numbers)
+  - [Asteroid](https://github.com/greyfolk99/algorithm/tree/main/notes/leetcode/asteroid)
+  - [Longest Substring Without Repeating Characters](https://github.com/greyfolk99/algorithm/tree/main/notes/leetcode/longest%20substring%20without%20repeating%20characters)
 
 

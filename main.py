@@ -18,7 +18,7 @@ def search_for_readme_files(directory):
         for problem_dir in os.scandir(platform_dir.path):
             title = problem_dir.name.replace('-', ' ').title()
             problem_path = os.path.join('.', 'notes', platform_dir.name, problem_dir.name)
-            problem_list.append(f'- [{title}](https://github.com/greyfolk99/algorithm/tree/main/notes/{platform_name}/{problem_dir.name.replace(" ","%20")})\n')
+            problem_list.append(f'- [{title}](https://github.com/greyfolk99/algorithm/tree/main/notes/{platform_name.lower()}/{problem_dir.name.lower().replace(" ","%20")})\n')
             readme_path = os.path.join(problem_dir.path, 'README.md')
             with open(readme_path, 'r', encoding='utf-8') as f:
                 last_line = f.read().strip().split('\n')[-1]
