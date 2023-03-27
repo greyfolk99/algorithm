@@ -39,5 +39,5 @@ class Solution:
 Runtime : 94 ms / Beats 85.64%  
 Memory : 15.1 MB / Beats 61.75%
 
-@stack @stack @stack @stack @stack @stack
 
+tags: @stack

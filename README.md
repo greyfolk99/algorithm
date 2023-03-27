@@ -3,11 +3,11 @@
 
 - This collects all algorithm stacks by reading last lines of README.md files in subdirectories, that have prefixes of @
 
-### Day 4
+### Day 3
 | Algorithms |      Stack      |
 |-----------|------------------|
-| stack | ■■■■■■ |
 | singly-linked-list | ■ |
+| stack | ■ |
 | sliding-window | ■ |
 
 
