@@ -1,22 +1,4 @@
 # Algorithms (Random topics given by Copilot)
 
 - [x] Sliding Window
-- [ ] Two Pointers
-- [ ] Binary Search
-- [ ] BFS
-- [ ] DFS
-- [ ] Dynamic Programming
-- [ ] Greedy
-- [ ] Backtracking
-- [ ] Divide and Conquer
-- [ ] Bit Manipulation
-- [ ] Graph
-- [ ] Tree
-- [ ] Heap
-- [ ] Union Find
-- [ ] Trie
-- [ ] Segment Tree
-- [ ] Binary Indexed Tree
-- [ ] Topological Sort
-- [ ] Line Sweep
-- [ ] Geometry
+- [x] Singly Linked List
