@@ -3,7 +3,7 @@
 
 - This collects all algorithm stacks by reading last lines of README.md files in subdirectories, that have prefixes of @
 
-### Day 4
+### Day 5
 | Algorithms |      Stack      |
 |-----------|------------------|
 | singly-linked-list | ■ |
@@ -13,8 +13,8 @@
 
 ### Problem List
 > Leetcode :
-  - [Add Two Numbers](https://github.com/greyfolk99/algorithm/.\notes\leetcode\Add Two Numbers)
-  - [Asteroid](https://github.com/greyfolk99/algorithm/.\notes\leetcode\Asteroid)
-  - [Longest Substring Without Repeating Characters](https://github.com/greyfolk99/algorithm/.\notes\leetcode\Longest Substring Without Repeating Characters)
+  - [Add Two Numbers](https://github.com/greyfolk99/algorithm/Add Two Numbers)
+  - [Asteroid](https://github.com/greyfolk99/algorithm/Asteroid)
+  - [Longest Substring Without Repeating Characters](https://github.com/greyfolk99/algorithm/Longest Substring Without Repeating Characters)
 
 
