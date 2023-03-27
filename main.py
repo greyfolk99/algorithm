@@ -48,12 +48,13 @@ readme = \
     f'''
 # Algorithm Stacks Updater
 
-Collects all algorithm stacks from the repositories with prefix of @
+- This collects all algorithm stacks by reading last lines of README.md files in subdirectories, that have prefixes of @
 
-## Day {new_day}
-| Algorithms | Stack |
-|-----------|-------|
+### Day {new_day}
+| Algorithms |      Stack      |
+|-----------|------------------|
 {algorithm_scores_str}
+
 '''
 
 
