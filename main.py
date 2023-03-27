@@ -1,44 +1,34 @@
 import os
 import re
-from datetime import datetime
+from collections import OrderedDict
 
-# Define a dictionary to store the algorithm scores
-scores = {}
+# Define data
+algorithms = {}
+problem_list = []
 
 # Define a regular expression to match the algorithm names in the last line of the README.md files
 regex = r'@([\w-]+)'
 
 
 # Define a recursive function to search for README.md files in subdirectories
-def search_for_readme_files(directory, problem_list):
-    for entry in os.scandir(directory):
-        if entry.is_file() and entry.name == 'README.md':
-            with open(entry.path, 'r', encoding='utf-8') as f:
+def search_for_readme_files(directory):
+    for platform_dir in os.scandir(directory):
+        platform_name = platform_dir.name.capitalize()
+        problem_list.append(f'> {platform_name} :\n')
+        for problem_dir in os.scandir(platform_dir.path):
+            title = problem_dir.name.replace('-', ' ').title()
+            problem_path = os.path.join('.', 'notes', platform_dir.name, problem_dir.name)
+            problem_list.append(f'- [{title}]({problem_path})\n')
+            readme_path = os.path.join(problem_dir.path, 'README.md')
+            with open(readme_path, 'r', encoding='utf-8') as f:
                 last_line = f.read().strip().split('\n')[-1]
                 for match in re.finditer(regex, last_line):
-                    algorithm = match.group(1)
-                    scores[algorithm] = scores.get(algorithm, 0) + 1
-        elif entry.is_dir():
-            if entry.name == 'notes':
-                for platform_dir in os.scandir(entry.path):
-                    if platform_dir.is_dir():
-                        platform_name = platform_dir.name.capitalize()
-                        problem_list += f'> {platform_name}\n'
-                        for problem_dir in os.scandir(platform_dir.path):
-                            if problem_dir.is_dir():
-                                readme_file_path = os.path.join(problem_dir.path, 'README.md')
-                                if os.path.exists(readme_file_path):
-                                    with open(readme_file_path, 'r', encoding='utf-8') as f:
-                                        title = problem_dir.name.replace('-', ' ').title()
-                                        url = f'https://github.com/greyfolk99/algorithm/notes/{platform_name}/{problem_dir.name}/'
-                                        problem_list += f'- [{title}]({url})\n'
-            search_for_readme_files(entry.path, problem_list)
+                    algorithm_tag = match.group(1)
+                    algorithms[algorithm_tag] = algorithms.get(algorithm_tag, 0) + 1
 
 
-problem_list = ''
 # Call the recursive function to search for README.md files in subdirectories
-search_for_readme_files('.', problem_list)
-
+search_for_readme_files('.\\notes')
 
 # Read the current contents of the file
 with open('README.md', 'r', encoding='utf-8') as f:
@@ -54,8 +44,8 @@ else:
 new_day = current_day + 1
 
 # Sort the scores dictionary in descending order by value
-sorted_scores = dict(sorted(scores.items(), key=lambda item: item[1], reverse=True))
-algorithm_scores_str = ''.join([f"| {algorithm} | {'■' * score} |\n" for algorithm, score in sorted_scores.items()])
+sorted_scores = dict(sorted(algorithms.items(), key=lambda item: item[1], reverse=True))
+algorithm_stack_str = ''.join([f"| {algorithm} | {'■' * score} |\n" for algorithm, score in sorted_scores.items()])
 
 # Generate the final output string
 i = 1
@@ -68,15 +58,17 @@ readme = \
 ### Day {new_day}
 | Algorithms |      Stack      |
 |-----------|------------------|
-{algorithm_scores_str}
+{algorithm_stack_str}
 
 ### Problem List
-{problem_list}
+{'  '.join(problem_list)}
+
 '''
 
 # Write the updated contents to the file
 with open('README.md', 'w', encoding='utf-8') as f:
     f.write(readme)
+
 
 os.system('git pull origin main')
 os.system(f'git add .')
