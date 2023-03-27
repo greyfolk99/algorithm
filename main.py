@@ -10,7 +10,7 @@ regex = r'@([\w-]+)'
 
 
 # Define a recursive function to search for README.md files in subdirectories
-def search_for_readme_files(directory):
+def search_for_readme_files(directory, problem_list):
     for entry in os.scandir(directory):
         if entry.is_file() and entry.name == 'README.md':
             with open(entry.path, 'r', encoding='utf-8') as f:
@@ -19,11 +19,26 @@ def search_for_readme_files(directory):
                     algorithm = match.group(1)
                     scores[algorithm] = scores.get(algorithm, 0) + 1
         elif entry.is_dir():
-            search_for_readme_files(entry.path)
+            if entry.name == 'notes':
+                for platform_dir in os.scandir(entry.path):
+                    if platform_dir.is_dir():
+                        platform_name = platform_dir.name.capitalize()
+                        problem_list += f'> {platform_name}\n'
+                        for problem_dir in os.scandir(platform_dir.path):
+                            if problem_dir.is_dir():
+                                readme_file_path = os.path.join(problem_dir.path, 'README.md')
+                                if os.path.exists(readme_file_path):
+                                    with open(readme_file_path, 'r', encoding='utf-8') as f:
+                                        title = problem_dir.name.replace('-', ' ').title()
+                                        url = f'https://github.com/greyfolk99/algorithm/notes/{platform_name}/{problem_dir.name}/'
+                                        problem_list += f'- [{title}]({url})\n'
+            search_for_readme_files(entry.path, problem_list)
 
 
+problem_list = ''
 # Call the recursive function to search for README.md files in subdirectories
-search_for_readme_files('.')
+search_for_readme_files('.', problem_list)
+
 
 # Read the current contents of the file
 with open('README.md', 'r', encoding='utf-8') as f:
@@ -55,8 +70,9 @@ readme = \
 |-----------|------------------|
 {algorithm_scores_str}
 
+### Problem List
+{problem_list}
 '''
-
 
 # Write the updated contents to the file
 with open('README.md', 'w', encoding='utf-8') as f:
