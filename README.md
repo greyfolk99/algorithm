@@ -3,7 +3,7 @@
 
 Collects all algorithm stacks from the repositories with prefix of @
 
-## Day 2
+## Day 3
 | Algorithms | Stack |
 |-----------|-------|
 | singly-linked-list | ■ |
