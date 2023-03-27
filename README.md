@@ -2,7 +2,7 @@
 # Algorithm Stacks Updater
 
 - This collects all algorithm stacks by reading last lines of README.md files in subdirectories, that have prefixes of @
-![image](https://user-images.githubusercontent.com/115934563/228036047-7f43aa43-f832-491f-b4e5-abed7a40d3b7.png)
+ex) @stack @singly-linked-list @sliding-window
 
 
 ### Day 3
