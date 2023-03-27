@@ -39,3 +39,5 @@ class Solution:
 ```
 Runtime : 61 ms  
 Memory : 14.1 MB
+
+@sliding-window

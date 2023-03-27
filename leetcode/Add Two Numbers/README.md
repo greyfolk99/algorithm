@@ -55,3 +55,4 @@ class Solution:
 Runtime : 57 ms  
 Memory : 13.8 MB
 
+@singly-linked-list
