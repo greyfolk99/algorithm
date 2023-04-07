@@ -4,7 +4,7 @@
     This collects all algorithm stacks by reading last lines of README.md files in subdirectories, that have prefixes of '@'  
     ex) @stack @singly-linked-list @sliding-window  
   
-    ### Day 4  
+    ### Day 5  
     | Algorithms |      Stack      |
     |-----------|------------------|
     | singly-linked-list | ■ |  | stack | ■ |  | sliding-window | ■ |
