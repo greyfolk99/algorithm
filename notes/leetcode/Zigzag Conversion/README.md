@@ -66,5 +66,4 @@ class Solution:
 ![mem](memory.PNG)
 ![run](runtime.PNG)
 
-
-@
+@implementations

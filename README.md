@@ -5,12 +5,13 @@ This collects all algorithm stacks by reading last lines of README.md files in s
 
 ex) @stack @singly-linked-list @sliding-window  
   
-### Day 4  
+### Day 8  
 | Algorithms |      Stack      |
 |-----------|------------------|
 | singly-linked-list | ■ |
 | stack | ■ |
 | sliding-window | ■ |
+| implementations | ■ |
 
 ### Problem List  
 > Leetcode :
