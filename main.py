@@ -96,9 +96,9 @@ def items_grouped_by_category(root_dir:str, category_dict:dict):
 def readme(new_day:int):
     return \
     f'''
-# Algorithm Stacks Updater  
+# Algorithm Study Note Updater  
 
-This collects all algorithm stacks by reading last lines of README.md files in subdirectories, that have prefixes of '@'  
+This collects all notes by reading last lines of README.md files in subdirectories, that have prefixes of '@'  
 
 ex) @stack @singly-linked-list @sliding-window  
 
