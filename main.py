@@ -2,75 +2,96 @@ import os
 import re
 from collections import OrderedDict
 
-# Define data
-algorithms = {}
-problem_list = []
+def get_readme_dir(problem_dir:str):
+    return os.path.join(problem_dir.path, 'README.md')
 
-# Define a regular expression to match the algorithm names in the last line of the README.md files
-regex = r'@([\w-]+)'
+def get_last_line(dir:str):
+    with open(dir, 'r', encoding='utf-8') as f:
+        return f.read().strip().split('\n')[-1]
 
-
-# Define a recursive function to search for README.md files in subdirectories
-def search_for_readme_files(directory):
+# problem_dict = { platform_name, [titles] }
+# algorithm_dict = { algorithm_type, score }
+def pre_process(directory, problem_dict:dict={}, algorithm_dict:dict={}):
+    regex = r'@([\w-]+)'
+    # platform
     for platform_dir in os.scandir(directory):
         platform_name = platform_dir.name.capitalize()
-        problem_list.append(f'> {platform_name} :\n')
+        # problems
+        problem_titles = []
         for problem_dir in os.scandir(platform_dir.path):
-            title = problem_dir.name.replace('-', ' ').title()
-            problem_path = os.path.join('.', 'notes', platform_dir.name, problem_dir.name)
-            problem_list.append(f'- [{title}](https://github.com/greyfolk99/algorithm/tree/main/notes/{platform_name.lower()}/{problem_dir.name.replace(" ","%20")})\n')
-            readme_path = os.path.join(problem_dir.path, 'README.md')
-            with open(readme_path, 'r', encoding='utf-8') as f:
-                last_line = f.read().strip().split('\n')[-1]
-                for match in re.finditer(regex, last_line):
-                    algorithm_tag = match.group(1)
-                    algorithms[algorithm_tag] = algorithms.get(algorithm_tag, 0) + 1
+            readme_dir = get_readme_dir(problem_dir)
+            problem_title = problem_dir.name
+            problem_titles.append(problem_title)
+            last_line = get_last_line(readme_dir)
+            # tags
+            for tag in re.finditer(regex, last_line):
+                algorithm_tag = tag.group(1)
+                algorithm_dict[algorithm_tag] = algorithm_dict.get(algorithm_tag, 0) + 1
+        problem_dict[platform_name] = problem_titles
+    return algorithm_dict, problem_dict
 
+# get last day that was recorded in README
+def get_last_day(readme_dir:str):
+    with open(readme_dir, 'r', encoding='utf-8') as f:
+        file_contents = f.read()
+    # Extract the current day number from the section header
+    section_header_regex = r'## Day (\d+)'
+    match = re.search(section_header_regex, file_contents)
+    if match:
+        last_day = int(match.group(1))
+    else:
+        last_day = 1
+    return last_day
 
-# Call the recursive function to search for README.md files in subdirectories
-search_for_readme_files('.\\notes')
+# markdown lines of rows of present with '■' as many as 'score'
+def stack_rows(algorithm_dict:dict):
+    sorted_scores = dict(sorted(algorithm_dict.items(), key=lambda item: item[1], reverse=True))
+    return '  '.join([f"| {algorithm_name} | {'■' * score} |" for algorithm_name, score in sorted_scores.items()])
 
-# Read the current contents of the file
-with open('README.md', 'r', encoding='utf-8') as f:
-    file_contents = f.read()
+# markdown lines grouped by platform, with links of subdir in repository
+def problem_lines_grouped_by_platform(problem_dict:dict):
+    line_list = []
+    platform_keys = sorted(problem_dict.keys())
+    for platform_name in platform_keys:
+        line_list.append(f'> {platform_name} :\n')
+        problem_list = problem_dict[platform_name]
+        for problem in problem_list:
+            title = problem.replace('-', ' ').title()
+            line_list.append(f'- [{title}](https://github.com/greyfolk99/algorithm/tree/main/notes/{platform_name.lower()}/{problem.replace(" ","%20")})\n')
+    return '  '.join(problem_list)
 
-# Extract the current day number from the section header
-section_header_regex = r'## Day (\d+)'
-match = re.search(section_header_regex, file_contents)
-if match:
-    current_day = int(match.group(1))
-else:
-    current_day = 1
-new_day = current_day + 1
-
-# Sort the scores dictionary in descending order by value
-sorted_scores = dict(sorted(algorithms.items(), key=lambda item: item[1], reverse=True))
-algorithm_stack_str = ''.join([f"| {algorithm} | {'■' * score} |\n" for algorithm, score in sorted_scores.items()])
-
-# Generate the final output string
-i = 1
-readme = \
+# generate formatted readme
+def readme(new_day:int, algorithm_dict:dict, problem_dict:dict):
+    return \
     f'''
-# Algorithm Stacks Updater
+    # Algorithm Stacks Updater  
 
-- This collects all algorithm stacks by reading last lines of README.md files in subdirectories, that have prefixes of @
+    This collects all algorithm stacks by reading last lines of README.md files in subdirectories, that have prefixes of '@'  
+    ex) @stack @singly-linked-list @sliding-window  
+  
+    ### Day {new_day}  
+    | Algorithms |      Stack      |
+    |-----------|------------------|
+    {stack_rows(algorithm_dict)}
 
-### Day {new_day}
-| Algorithms |      Stack      |
-|-----------|------------------|
-{algorithm_stack_str}
+    ### Problem List  
+    {problem_lines_grouped_by_platform(problem_dict)}  
+    '''
 
-### Problem List
-{'  '.join(problem_list)}
+# main method
+def main():
+    # parse data from root directory ('.\\notes')
+    algorithm_dict, problem_dict = pre_process('.\\notes')
+    # get new day
+    main_readme_dir = 'README.md'
+    new_day = get_last_day(main_readme_dir) + 1
+    # update main README file
+    with open(main_readme_dir, 'w', encoding='utf-8') as f:
+        f.write(readme(new_day, algorithm_dict, problem_dict))
+    # push to git
+    os.system('git pull origin main')
+    os.system(f'git add .')
+    os.system(f'git commit -m "Day {new_day} Update"')
+    os.system('git push origin main')
 
-'''
-
-# Write the updated contents to the file
-with open('README.md', 'w', encoding='utf-8') as f:
-    f.write(readme)
-
-
-os.system('git pull origin main')
-os.system(f'git add .')
-os.system(f'git commit -m "Day {new_day} Update"')
-os.system('git push origin main')
+main()
