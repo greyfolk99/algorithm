@@ -91,7 +91,7 @@ def main():
         f.write(readme(new_day, algorithm_dict, problem_dict))
     # push to git
     os.system('git pull origin main')
-    os.system(f'git add .')
-    os.system(f'git commit -m "Day {new_day} Update"')
+    os.system('git add .')
+    os.system('git commit -m "Day {new_day} Update"')
     os.system('git push origin main')
 main()
