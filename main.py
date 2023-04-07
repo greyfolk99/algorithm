@@ -118,6 +118,6 @@ def main():
     # push to git
     os.system('git pull origin main')
     os.system('git add .')
-    os.system('git commit -m "Day {new_day} Update"')
+    os.system(f'git commit -m "Day {new_day} Update"')
     os.system('git push origin main')
 main()
