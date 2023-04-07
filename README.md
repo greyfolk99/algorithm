@@ -5,7 +5,7 @@ This collects all algorithm stacks by reading last lines of README.md files in s
 
 ex) @stack @singly-linked-list @sliding-window  
 
-### Day 5  
+### Day 3  
 | Algorithms |      Stack      |
 |-----------|------------------|
 | singly-linked-list | ■■ |

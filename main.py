@@ -1,11 +1,17 @@
+import datetime
 import os
 import re
-from collections import OrderedDict
+import urllib.request
+import json
 
-repository_path = 'https://github.com/greyfolk99/algorithm'
+
+username = 'greyfolk99'
+repository = 'algorithm'
+repository_path = f'https://github.com/{username}/{repository}'
+
 data_structures = []
-tag_dict = {}
 tag_regex = r'@([\w-]+)'
+tag_dict = {}
 problem_dict = {}
 
 def get_readme_dir(dir:str):
@@ -45,17 +51,22 @@ def read_problems(directory):
         problem_dict[platform_name] = problem_titles
 
 # get last day that was recorded in README
-def get_last_day(readme_dir:str):
-    with open(readme_dir, 'r', encoding='utf-8') as f:
-        file_contents = f.read()
-    # Extract the current day number from the section header
-    section_header_regex = r'## Day (\d+)'
-    match = re.search(section_header_regex, file_contents)
-    if match:
-        last_day = int(match.group(1))
-    else:
-        last_day = 1
-    return last_day
+def get_last_day():
+    # GitHub API를 이용하여 커밋 기록 가져오기
+    url = f'https://api.github.com/repos/{username}/{repository}/commits'
+    with urllib.request.urlopen(url) as response:
+        html = response.read()
+
+    # JSON 형식으로 반환된 응답 데이터 처리하기
+    commits = json.loads(html)
+    # 커밋한 날짜 목록 추출하기
+    commit_dates = []
+    for commit in commits:
+        date_str = commit['commit']['author']['date']
+        date_obj = datetime.datetime.strptime(date_str, '%Y-%m-%dT%H:%M:%SZ').date()
+        commit_dates.append(date_obj)
+    # 커밋한 총 날짜 수 구하기
+    return len(set(commit_dates))
 
 # markdown lines of rows of present with '■' as many as 'score'
 def stack_rows():
@@ -111,7 +122,7 @@ def main():
     read_problems('.\\problems')
     # get new day
     main_readme_dir = 'README.md'
-    new_day = get_last_day(main_readme_dir) + 1
+    new_day = get_last_day() + 1
     # update main README file
     with open(main_readme_dir, 'w', encoding='utf-8') as f:
         f.write(readme(new_day))
