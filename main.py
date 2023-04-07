@@ -92,13 +92,13 @@ This collects all algorithm stacks by reading last lines of README.md files in s
 
 ex) @stack @singly-linked-list @sliding-window  
 
-### Data Structures
-{items('base', data_structures)}
-
 ### Day {new_day}  
 | Algorithms |      Stack      |
 |-----------|------------------|
 {stack_rows()}
+
+### Data Structures
+{items('base', data_structures)}
 
 ### Problem List  
 {items_grouped_by_category('problems', problem_dict)}  

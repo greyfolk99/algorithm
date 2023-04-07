@@ -5,10 +5,6 @@ This collects all algorithm stacks by reading last lines of README.md files in s
 
 ex) @stack @singly-linked-list @sliding-window  
 
-### Data Structures
-- [Singly Linked List](https://github.com/greyfolk99/algorithm/tree/main/base/singly-linked-list)
-
-
 ### Day 5  
 | Algorithms |      Stack      |
 |-----------|------------------|
@@ -16,6 +12,10 @@ ex) @stack @singly-linked-list @sliding-window
 | stack | ■ |
 | sliding-window | ■ |
 | string-implementations | ■ |
+
+### Data Structures
+- [Singly Linked List](https://github.com/greyfolk99/algorithm/tree/main/base/singly-linked-list)
+
 
 ### Problem List  
 > leetcode :
