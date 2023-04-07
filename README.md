@@ -1,7 +1,7 @@
 
 # Algorithm Stacks Updater
 
-- This collects all algorithm stacks by reading last lines of README.md files in subdirectories, that have prefixes of '@'  
+- This collects all algorithm stacks by reading 'last line' of README.md files in subdirectories, that have prefixes of '@'  
 ex) @stack @singly-linked-list @sliding-window
 
 
