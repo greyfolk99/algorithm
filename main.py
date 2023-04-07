@@ -66,7 +66,7 @@ def update_total_commited_day():
         date_obj = datetime.datetime.strptime(date_str, '%Y-%m-%dT%H:%M:%SZ').date()
         commit_dates.append(date_obj)
     # 커밋한 총 날짜 수 구하기
-    return len(set(commit_dates))
+    new_day = len(set(commit_dates))
 
 # markdown lines of rows of present with '■' as many as 'score'
 def stack_rows():
