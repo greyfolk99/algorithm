@@ -42,3 +42,6 @@ class LinkedList:
 ```
 
 ![image](img.png)
+
+
+@singly-linked-list
