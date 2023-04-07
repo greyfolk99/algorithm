@@ -51,7 +51,7 @@ def read_problems(directory):
         problem_dict[platform_name] = problem_titles
 
 # get last day that was recorded in README
-def get_last_day():
+def get_total_committed_day():
     # GitHub API를 이용하여 커밋 기록 가져오기
     url = f'https://api.github.com/repos/{username}/{repository}/commits'
     with urllib.request.urlopen(url) as response:
@@ -122,13 +122,12 @@ def main():
     read_problems('.\\problems')
     # get new day
     main_readme_dir = 'README.md'
-    new_day = get_last_day() + 1
     # update main README file
     with open(main_readme_dir, 'w', encoding='utf-8') as f:
-        f.write(readme(new_day))
+        f.write(readme(get_total_committed_day()))
     # push to git
     os.system('git pull origin main')
     os.system('git add .')
-    os.system(f'git commit -m "Day {new_day} Update"')
+    os.system(f'git commit -m "Day {get_total_committed_day()} Update"')
     os.system('git push origin main')
 main()
