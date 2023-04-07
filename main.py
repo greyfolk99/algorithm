@@ -46,7 +46,7 @@ def get_last_day(readme_dir:str):
 # markdown lines of rows of present with '■' as many as 'score'
 def stack_rows(algorithm_dict:dict):
     sorted_scores = dict(sorted(algorithm_dict.items(), key=lambda item: item[1], reverse=True))
-    return '  '.join([f"| {algorithm_name} | {'■' * score} |" for algorithm_name, score in sorted_scores.items()])
+    return '\n'.join([f"| {algorithm_name} | {'■' * score} |" for algorithm_name, score in sorted_scores.items()])
 
 # markdown lines grouped by platform, with links of subdir in repository
 def problem_lines_grouped_by_platform(problem_dict:dict):
@@ -58,25 +58,26 @@ def problem_lines_grouped_by_platform(problem_dict:dict):
         for problem in problem_list:
             title = problem.replace('-', ' ').title()
             line_list.append(f'- [{title}](https://github.com/greyfolk99/algorithm/tree/main/notes/{platform_name.lower()}/{problem.replace(" ","%20")})\n')
-    return '  '.join(problem_list)
+    return '  '.join(line_list)
 
 # generate formatted readme
 def readme(new_day:int, algorithm_dict:dict, problem_dict:dict):
     return \
     f'''
-    # Algorithm Stacks Updater  
+# Algorithm Stacks Updater  
 
-    This collects all algorithm stacks by reading last lines of README.md files in subdirectories, that have prefixes of '@'  
-    ex) @stack @singly-linked-list @sliding-window  
+This collects all algorithm stacks by reading last lines of README.md files in subdirectories, that have prefixes of '@'  
+
+ex) @stack @singly-linked-list @sliding-window  
   
-    ### Day {new_day}  
-    | Algorithms |      Stack      |
-    |-----------|------------------|
-    {stack_rows(algorithm_dict)}
+### Day {new_day}  
+| Algorithms |      Stack      |
+|-----------|------------------|
+{stack_rows(algorithm_dict)}
 
-    ### Problem List  
-    {problem_lines_grouped_by_platform(problem_dict)}  
-    '''
+### Problem List  
+{problem_lines_grouped_by_platform(problem_dict)}  
+'''
 
 # main method
 def main():
@@ -93,5 +94,4 @@ def main():
     os.system(f'git add .')
     os.system(f'git commit -m "Day {new_day} Update"')
     os.system('git push origin main')
-
 main()
