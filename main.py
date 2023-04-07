@@ -4,11 +4,11 @@ import re
 import urllib.request
 import json
 
-
 username = 'greyfolk99'
 repository = 'algorithm'
 repository_path = f'https://github.com/{username}/{repository}'
 
+new_day = 0
 data_structures = []
 tag_regex = r'@([\w-]+)'
 tag_dict = {}
@@ -51,7 +51,7 @@ def read_problems(directory):
         problem_dict[platform_name] = problem_titles
 
 # get last day that was recorded in README
-def get_total_committed_day():
+def update_total_commited_day():
     # GitHub API를 이용하여 커밋 기록 가져오기
     url = f'https://api.github.com/repos/{username}/{repository}/commits'
     with urllib.request.urlopen(url) as response:
@@ -94,7 +94,7 @@ def items_grouped_by_category(root_dir:str, category_dict:dict):
     return '  '.join(line_list)
 
 # generate formatted readme
-def readme(new_day:int):
+def readme():
     return \
     f'''
 # Algorithm Stacks Updater  
@@ -121,13 +121,14 @@ def main():
     read_base('.\\base')
     read_problems('.\\problems')
     # get new day
-    main_readme_dir = 'README.md'
+    update_total_commited_day()
     # update main README file
-    with open(main_readme_dir, 'w', encoding='utf-8') as f:
-        f.write(readme(get_total_committed_day()))
+    with open("README.md", 'w', encoding='utf-8') as f:
+        f.write(readme())
     # push to git
     os.system('git pull origin main')
     os.system('git add .')
-    os.system(f'git commit -m "Day {get_total_committed_day()} Update"')
+    os.system(f'git commit -m "Day {update_total_commited_day()} Update"')
     os.system('git push origin main')
+    
 main()
