@@ -8,7 +8,7 @@ Each README files in subdirectories (base, problems) can have tags that starts w
 ex) @stack @singly-linked-list @sliding-window  
 ```
 
-### Day 3  
+### Day 4  
 | Algorithms |      Stack      |
 |-----------|------------------|
 | singly-linked-list | ■■ |
