@@ -3,11 +3,13 @@ import os
 import re
 import urllib.request
 import json
+from dotenv import load_dotenv
 
 username = 'greyfolk99'
 repository = 'algorithm'
-repository_path = f'https://github.com/{username}/{repository}'
+repository_path = os.getenv("REPOSITORY")
 
+# inmemory
 data_structures = []
 tag_regex = r'@([\w-]+)'
 tag_dict = {}
@@ -59,7 +61,6 @@ def get_total_committed_day():
     url = f'https://api.github.com/repos/{username}/{repository}/commits'
     with urllib.request.urlopen(url) as response:
         html = response.read()
-
     # JSON 형식으로 반환된 응답 데이터 처리하기
     commits = json.loads(html)
     # 커밋한 날짜 목록 추출하기

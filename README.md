@@ -13,20 +13,23 @@ ex) @stack @singly-linked-list @sliding-window
 |-----------|------------------|
 | singly-linked-list | ■■ |
 | stack | ■ |
-| sliding-window | ■ |
+| DFS | ■ |
+| Dynamic | ■ |
+| String | ■ |
 | string-implementations | ■ |
 | array | ■ |
 
 ### Data Structures
-- [Singly Linked List](https://github.com/greyfolk99/algorithm/tree/main/base/singly-linked-list)
+- [Singly Linked List](None/tree/main/base/singly-linked-list)
 
 
 ### Problem List  
 > leetcode :
-  - [Add Two Numbers](https://github.com/greyfolk99/algorithm/tree/main/problems/leetcode/Add%20Two%20Numbers)
-  - [Asteroid](https://github.com/greyfolk99/algorithm/tree/main/problems/leetcode/Asteroid)
-  - [Longest Substring Without Repeating Characters](https://github.com/greyfolk99/algorithm/tree/main/problems/leetcode/Longest%20Substring%20Without%20Repeating%20Characters)
-  - [Zigzag Conversion](https://github.com/greyfolk99/algorithm/tree/main/problems/leetcode/Zigzag%20Conversion)
+  - [Add Two Numbers](None/tree/main/problems/leetcode/Add%20Two%20Numbers)
+  - [Asteroid](None/tree/main/problems/leetcode/Asteroid)
+  - [Generate Parentheses](None/tree/main/problems/leetcode/Generate%20Parentheses)
+  - [Longest Substring Without Repeating Characters](None/tree/main/problems/leetcode/Longest%20Substring%20Without%20Repeating%20Characters)
+  - [Zigzag Conversion](None/tree/main/problems/leetcode/Zigzag%20Conversion)
   > programmers :
-  - [달리기 경주](https://github.com/greyfolk99/algorithm/tree/main/problems/programmers/달리기%20경주)
+  - [달리기 경주](None/tree/main/problems/programmers/달리기%20경주)
   
