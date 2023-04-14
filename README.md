@@ -8,13 +8,13 @@ Each README files in subdirectories (base, problems) can have tags that starts w
 ex) @stack @singly-linked-list @sliding-window  
 ```
 
-### Day 4  
+### Day 5  
 | Algorithms |      Stack      |
 |-----------|------------------|
 | singly-linked-list | ■■ |
 | stack | ■ |
 | DFS | ■ |
-| Dynamic | ■ |
+| Dynamic-Programming | ■ |
 | String | ■ |
 | string-implementations | ■ |
 | array | ■ |
