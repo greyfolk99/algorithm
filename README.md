@@ -11,13 +11,13 @@ ex) @stack @singly-linked-list @sliding-window
 ### Day 5  
 | Algorithms |      Stack      |
 |-----------|------------------|
-| singly-linked-list | ■■ |
-| stack | ■ |
-| DFS | ■ |
-| Dynamic-Programming | ■ |
-| String | ■ |
-| string-implementations | ■ |
-| array | ■ |
+| String | ■■ |
+| singly-linked-list | ■ |
+| Singly Linked List | ■ |
+| Stack | ■ |
+| Dfs | ■ |
+| Dynamic Programming | ■ |
+| Array | ■ |
 
 ### Data Structures
 - [Singly Linked List](None/tree/main/base/singly-linked-list)

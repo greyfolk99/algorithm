@@ -50,7 +50,7 @@ def read_problems(directory):
             last_line = get_last_line(readme_dir)
             # tags
             for tag in re.finditer(tag_regex, last_line):
-                tag_name = tag.group(1)
+                tag_name = tag.group(1).replace('-', ' ').title()
                 tag_dict[tag_name] = tag_dict.get(tag_name, 0) + 1
         problem_dict[platform_name] = problem_titles
 
