@@ -11,9 +11,8 @@ ex) @stack @singly-linked-list @sliding-window
 ### Day 5  
 | Algorithms |      Stack      |
 |-----------|------------------|
+| Singly Linked List | ■■ |
 | String | ■■ |
-| singly-linked-list | ■ |
-| Singly Linked List | ■ |
 | Stack | ■ |
 | Dfs | ■ |
 | Dynamic Programming | ■ |

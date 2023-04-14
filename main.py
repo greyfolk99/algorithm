@@ -31,7 +31,7 @@ def read_base(directory):
         data_structures.append(data_structure_dir.name)
         last_line = get_last_line(get_readme_dir(data_structure_dir))
         for tag in re.finditer(tag_regex, last_line):
-            tag_name = tag.group(1)
+            tag_name = tag.group(1).replace('-', ' ').title()
         tag_dict[tag_name] = tag_dict.get(tag_name, 0) + 1
 
 
