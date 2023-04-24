@@ -8,7 +8,7 @@ Each README files in subdirectories (base, problems) can have tags that starts w
 ex) @stack @singly-linked-list @sliding-window  
 ```
 
-### Day 4  
+### Day 5  
 | Algorithms |      Stack      |
 |-----------|------------------|
 | String | ■■■ |
@@ -27,9 +27,9 @@ ex) @stack @singly-linked-list @sliding-window
 > leetcode :
   - [Add Two Numbers](None/tree/main/problems/leetcode/Add%20Two%20Numbers)
   - [Asteroid](None/tree/main/problems/leetcode/Asteroid)
-  - [D](None/tree/main/problems/leetcode/d)
   - [Generate Parentheses](None/tree/main/problems/leetcode/Generate%20Parentheses)
   - [Longest Substring Without Repeating Characters](None/tree/main/problems/leetcode/Longest%20Substring%20Without%20Repeating%20Characters)
+  - [String To Integer (Atoi)](None/tree/main/problems/leetcode/String%20to%20Integer%20(atoi))
   - [Zigzag Conversion](None/tree/main/problems/leetcode/Zigzag%20Conversion)
   > programmers :
   - [달리기 경주](None/tree/main/problems/programmers/달리기%20경주)
