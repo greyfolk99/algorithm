@@ -8,14 +8,15 @@ Each README files in subdirectories (base, problems) can have tags that starts w
 ex) @stack @singly-linked-list @sliding-window  
 ```
 
-### Day 5  
+### Day 4  
 | Algorithms |      Stack      |
 |-----------|------------------|
+| String | ■■■ |
 | Singly Linked List | ■■ |
-| String | ■■ |
 | Stack | ■ |
 | Dfs | ■ |
 | Dynamic Programming | ■ |
+| Number | ■ |
 | Array | ■ |
 
 ### Data Structures
@@ -26,6 +27,7 @@ ex) @stack @singly-linked-list @sliding-window
 > leetcode :
   - [Add Two Numbers](None/tree/main/problems/leetcode/Add%20Two%20Numbers)
   - [Asteroid](None/tree/main/problems/leetcode/Asteroid)
+  - [D](None/tree/main/problems/leetcode/d)
   - [Generate Parentheses](None/tree/main/problems/leetcode/Generate%20Parentheses)
   - [Longest Substring Without Repeating Characters](None/tree/main/problems/leetcode/Longest%20Substring%20Without%20Repeating%20Characters)
   - [Zigzag Conversion](None/tree/main/problems/leetcode/Zigzag%20Conversion)
