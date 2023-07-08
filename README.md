@@ -3,7 +3,6 @@
 
 _This README is automated generated_ 
 
-Each README files in subdirectories (base, problems) can have tags that starts with '@'  
 ```
 ex) @stack @singly-linked-list @sliding-window  
 ```
