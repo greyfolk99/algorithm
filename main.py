@@ -120,12 +120,16 @@ def main():
 
     note_paragraph = f'''
     
-## Notes
+### Notes
 {enter.join([f'- [{note}]({repository_path}/tree/main/{notes_root}/{note.replace(" ", "%20")})' for note in notes])}
 '''
 
     with open('README.md', 'w', encoding='utf-8') as f:
-        paragraphs = [stack_score_table, note_paragraph, problem_paragraph]
+        paragraphs = [
+            stack_score_table,
+            problem_paragraph,
+            note_paragraph
+        ]
         f.write(generate_readme(paragraphs))
 
     # push to git

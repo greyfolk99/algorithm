@@ -10,7 +10,7 @@ ex) @stack @singly-linked-list @sliding-window
 ```
 
     
-### Day 7  
+### Day 8  
 | Algorithms |      Stack      |
 |-----------|------------------|
 | Singly Linked List | ■■ |
@@ -20,11 +20,6 @@ ex) @stack @singly-linked-list @sliding-window
 | Dynamic Programming | ■ |
 | Number | ■ |
 | Array | ■ |
-
-
-    
-## Notes
-- [Singly Linked List](https://github.com/greyfolk99/algorithm/tree/main/.\notes/Singly%20Linked%20List)
 
 
         
@@ -40,4 +35,9 @@ ex) @stack @singly-linked-list @sliding-window
   > programmers :
   - [달리기 경주](https://github.com/greyfolk99/algorithm/tree/main/problems/programmers/달리기%20경주)
   
+
+
+    
+### Notes
+- [Singly Linked List](https://github.com/greyfolk99/algorithm/tree/main/.\notes/Singly%20Linked%20List)
 
