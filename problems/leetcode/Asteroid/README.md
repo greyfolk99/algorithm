@@ -1,4 +1,4 @@
-Asteroid Collision
+## Asteroid Collision
 
 [LeetCode](https://leetcode.com/problems/asteroid-collision/)
 
