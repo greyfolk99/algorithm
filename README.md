@@ -36,5 +36,5 @@ ex) @stack @singly-linked-list @sliding-window
 
 
 ### Notes
-- [Singly Linked List](https://github.com/greyfolk99/algorithm/tree/main/.\notes/Singly%20Linked%20List)
+- [Singly Linked List](https://github.com/greyfolk99/algorithm/tree/main/notes/Singly%20Linked%20List)
 

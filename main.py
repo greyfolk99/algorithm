@@ -115,7 +115,7 @@ def main():
 
     note_paragraph = f'''
 ### Notes
-{enter.join([f'- [{note}]({repository_path}/tree/main/{notes_root}/{note.replace(" ", "%20")})' for note in notes])}
+{enter.join([f'- [{note}]({repository_path}/tree/main/notes/{note.replace(" ", "%20")})' for note in notes])}
 '''
 
     with open('README.md', 'w', encoding='utf-8') as f:
