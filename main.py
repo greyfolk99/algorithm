@@ -79,47 +79,41 @@ def save_tag_count(readme_path, tag_dict):
 
 # main method
 def main():
-
-    enter = '\n'
-
-    # problem list and score part
+    # data collection
+    problems_root = '.\\problems'
+    notes_root = '.\\notes'
     platform_problem_dict = {}  # { platform : [titles] }
     tag_dict = {}  # { tag : score }
-
-    for platform_dir in get_child_dirs('.\\problems'):
+    notes = []
+    for platform_dir in get_child_dirs(problems_root):
         platform_name = platform_dir.name
         platform_problem_dict[platform_name] = []
         for problem_dir in get_child_dirs(platform_dir.path):
             readme_path = os.path.join(problem_dir.path, 'README.md')
             platform_problem_dict[platform_name].append(problem_dir.name)
             save_tag_count(readme_path, tag_dict)
-
-    # note part
-    notes = []
-    notes_root = '.\\notes'
     for snippet_dir in get_child_dirs(notes_root):
         notes.append(snippet_dir.name)
         readme_path = os.path.join(snippet_dir.path, 'README.md')
         save_tag_count(readme_path, tag_dict)
 
+    # generate markdown
+    enter = '\n'
     stack_score_table = f'''
-    
 ### Day {get_total_committed_day()}  
 | Algorithms |      Stack      |
 |-----------|------------------|
 {enter.join(
-    [f"| {tag.replace('-', ' ').title()} | {'■' * score} |"
-     for tag, score in dict(sorted(tag_dict.items(), key=lambda item: item[1], reverse=True)).items()])}
+        [f"| {tag.replace('-', ' ').title()} | {'■' * score} |"
+         for tag, score in dict(sorted(tag_dict.items(), key=lambda item: item[1], reverse=True)).items()])}
 '''
 
     problem_paragraph = f'''
-        
 ### Problem List  
 {items_grouped_by_category('problems', platform_problem_dict)}  
 '''
 
     note_paragraph = f'''
-    
 ### Notes
 {enter.join([f'- [{note}]({repository_path}/tree/main/{notes_root}/{note.replace(" ", "%20")})' for note in notes])}
 '''

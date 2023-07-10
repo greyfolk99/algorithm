@@ -9,7 +9,6 @@ Each README files in subdirectories (note, problems) can have tags that starts w
 ex) @stack @singly-linked-list @sliding-window  
 ```
 
-    
 ### Day 8  
 | Algorithms |      Stack      |
 |-----------|------------------|
@@ -22,7 +21,6 @@ ex) @stack @singly-linked-list @sliding-window
 | Array | ■ |
 
 
-        
 ### Problem List  
 > leetcode :
   - [Add Two Numbers](https://github.com/greyfolk99/algorithm/tree/main/problems/leetcode/Add%20Two%20Numbers)
@@ -37,7 +35,6 @@ ex) @stack @singly-linked-list @sliding-window
   
 
 
-    
 ### Notes
 - [Singly Linked List](https://github.com/greyfolk99/algorithm/tree/main/.\notes/Singly%20Linked%20List)
 
