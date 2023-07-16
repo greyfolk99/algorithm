@@ -1,15 +1,15 @@
 
 # Algorithm Study Note  
 
-_This README is automatically generated._  
+_This README was automatically generated._  
 
-Each README files in subdirectories (note, problems) can have tags that starts with '@' to annotate the content.  
+Each README files in subdirectories (note, problems) can have tags that starts with '@' to annotate its contents.  
 
 ```
 ex) @stack @singly-linked-list @sliding-window  
 ```
 
-### Day 8  
+### Day 9  
 | Algorithms |      Stack      |
 |-----------|------------------|
 | Singly Linked List | ■■ |

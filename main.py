@@ -59,9 +59,9 @@ def generate_readme(paragraphs):
     return f'''
 # Algorithm Study Note  
 
-_This README is automatically generated._  
+_This README was automatically generated._  
 
-Each README files in subdirectories (note, problems) can have tags that starts with '@' to annotate the content.  
+Each README files in subdirectories (note, problems) can have tags that starts with '@' to annotate its contents.  
 
 ```
 ex) @stack @singly-linked-list @sliding-window  
@@ -129,7 +129,7 @@ def main():
     # push to git
     os.system('git pull')
     os.system('git add .')
-    os.system(f'git commit -m "Day {get_total_committed_day()} Update"')
+    os.system(f'git commit -m "Day {get_total_committed_day()+1} Update"')
     os.system('git push origin main')
 
 main()
