@@ -84,6 +84,7 @@ def main():
     notes_root = '.\\notes'
     platform_problem_dict = {}  # { platform : [titles] }
     tag_dict = {}  # { tag : score }
+    day = get_total_committed_day()
     notes = []
     for platform_dir in get_child_dirs(problems_root):
         platform_name = platform_dir.name
@@ -100,7 +101,7 @@ def main():
     # generate markdown
     enter = '\n'
     stack_score_table = f'''
-### Day {get_total_committed_day()}  
+### Day {day}  
 | Algorithms |      Stack      |
 |-----------|------------------|
 {enter.join(
@@ -129,7 +130,7 @@ def main():
     # push to git
     os.system('git pull')
     os.system('git add .')
-    os.system(f'git commit -m "Day {get_total_committed_day()+1} Update"')
+    os.system(f'git commit -m "Day {day} Update"')
     os.system('git push origin main')
 
 main()
